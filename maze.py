@@ -14,6 +14,9 @@ RECT_SIZE = 10
 WHITE = (255, 255, 255)
 BLACK = (0,0,0)
 
+PERSON_START_POSITION_X = 80
+PERSON_START_POSITION_Y = 40
+
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Maze')
 
@@ -23,11 +26,14 @@ PERSON_LEFT = pygame.transform.rotate( PERSON, -90 )
 PERSON_UP = pygame.transform.rotate( PERSON, 180 )
 VEL = 5
 
+START_LINE = pygame.Rect(60, 30, 90, RECT_SIZE)
 
 RECT_1 = pygame.Rect(50, 50, RECT_SIZE, 500)
 RECT_2 = pygame.Rect(950, 50, RECT_SIZE, 500)
 RECT_3 = pygame.Rect(150, 50, 800, RECT_SIZE)
 RECT_4 = pygame.Rect(60, 540, 800, RECT_SIZE)
+
+END_LINE = pygame.Rect(860, 570, 90, RECT_SIZE)
 
 
 def setDirection(direction_pressed, direction):
@@ -81,10 +87,14 @@ def draw(position, direction):
     else:
         WIN.blit(PERSON, (position.x, position.y))
 
+    pygame.draw.rect(WIN, BLACK, START_LINE)
+
     pygame.draw.rect(WIN, BLACK, RECT_1)
     pygame.draw.rect(WIN, BLACK, RECT_2)
     pygame.draw.rect(WIN, BLACK, RECT_3)
     pygame.draw.rect(WIN, BLACK, RECT_4)
+
+    pygame.draw.rect(WIN, BLACK, END_LINE)
 
     pygame.display.update()
 
@@ -92,7 +102,7 @@ def main():
     
     clock = pygame.time.Clock()
     run = True
-    position = pygame.Rect(0, 0, PERSON_WIDTH, PERSON_HEIGHT)
+    position = pygame.Rect(PERSON_START_POSITION_X, PERSON_START_POSITION_Y, PERSON_WIDTH, PERSON_HEIGHT)
     direction = [0]
 
     while run:
