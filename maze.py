@@ -9,6 +9,7 @@ WIDTH = 1000
 HEIGHT = 600
 PERSON_WIDTH = 50
 PERSON_HEIGHT = 50
+RECT_SIZE = 10
 
 WHITE = (255, 255, 255)
 BLACK = (0,0,0)
@@ -20,7 +21,14 @@ PERSON = pygame.transform.scale( pygame.image.load(os.path.join('images', 'perso
 PERSON_RIGHT = pygame.transform.rotate( PERSON, 90 )
 PERSON_LEFT = pygame.transform.rotate( PERSON, -90 )
 PERSON_UP = pygame.transform.rotate( PERSON, 180 )
-VEL = 10
+VEL = 5
+
+
+RECT_1 = pygame.Rect(50, 50, RECT_SIZE, 500)
+RECT_2 = pygame.Rect(950, 50, RECT_SIZE, 500)
+RECT_3 = pygame.Rect(150, 50, 800, RECT_SIZE)
+RECT_4 = pygame.Rect(60, 540, 800, RECT_SIZE)
+
 
 def setDirection(direction_pressed, direction):
 
@@ -72,6 +80,11 @@ def draw(position, direction):
         WIN.blit(PERSON, (position.x, position.y))
     else:
         WIN.blit(PERSON, (position.x, position.y))
+
+    pygame.draw.rect(WIN, BLACK, RECT_1)
+    pygame.draw.rect(WIN, BLACK, RECT_2)
+    pygame.draw.rect(WIN, BLACK, RECT_3)
+    pygame.draw.rect(WIN, BLACK, RECT_4)
 
     pygame.display.update()
 
