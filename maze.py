@@ -7,7 +7,6 @@ pygame.init()
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Maze')
 
-
 def setDirection(direction_pressed, direction):
 
     if direction_pressed == 1:
