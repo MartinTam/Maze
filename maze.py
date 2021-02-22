@@ -7,6 +7,19 @@ pygame.init()
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Maze')
 
+def person(direction):
+
+    if direction[0] == 1:
+        PERSON = PERSON_RIGHT
+    elif direction[0] == 1:
+        PERSON = PERSON_LEFT
+    elif direction[0] == 1:
+        PERSON = PERSON_UP
+    elif direction[0] == 1:
+        PERSON = PERSON_DOWN
+    else: 
+        pass
+
 def setDirection(direction_pressed, direction):
 
     if direction_pressed == 1:

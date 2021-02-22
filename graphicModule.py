@@ -19,6 +19,7 @@ PERSON_DOWN = pygame.transform.scale( pygame.image.load(os.path.join('images', '
 PERSON_RIGHT = pygame.transform.rotate( PERSON_DOWN, 90 )
 PERSON_LEFT = pygame.transform.rotate( PERSON_DOWN, -90 )
 PERSON_UP = pygame.transform.rotate( PERSON_DOWN, 180 )
+PERSON = PERSON_DOWN
 VEL = 5
 
 START_LINE = pygame.Rect(60, 50, 90, RECT_SIZE) # Start the game
