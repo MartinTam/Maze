@@ -23,20 +23,28 @@ def setDirection(direction_pressed, direction):
 
 def movement(key_pressed, position):
 
-    if key_pressed[pygame.K_RIGHT] and position.x + PERSON_WIDTH <= WIDTH - 5:
-        position.x += VEL
+    if key_pressed[pygame.K_RIGHT]:
+        
+        if position.x + PERSON_WIDTH <= RECT_2.x - 5:
+            position.x += VEL
         return 1
     
-    elif key_pressed[pygame.K_LEFT] and position.x >= 5:
-        position.x -= VEL
+    elif key_pressed[pygame.K_LEFT]:
+        
+        if position.x >= RECT_1.x + 15:
+            position.x -= VEL
         return 2
     
-    elif key_pressed[pygame.K_UP] and position.y >= 5:
-        position.y -= VEL
+    elif key_pressed[pygame.K_UP]:
+        
+        if position.y >= RECT_3.y + 15:
+            position.y -= VEL
         return 3
-    
-    elif key_pressed[pygame.K_DOWN] and position.y + PERSON_HEIGHT <= HEIGHT - 5:
-        position.y += VEL
+
+    elif key_pressed[pygame.K_DOWN]:
+        
+        if position.y + PERSON_HEIGHT <= RECT_4.y - 5:
+            position.y += VEL
         return 4
 
     else:
@@ -54,18 +62,18 @@ def draw(position, direction):
     elif direction[0] == 3:
         WIN.blit(PERSON_UP, (position.x, position.y))
     elif direction[0] == 4:
-        WIN.blit(PERSON, (position.x, position.y))
+        WIN.blit(PERSON_DOWN, (position.x, position.y))
     else:
-        WIN.blit(PERSON, (position.x, position.y))
+        WIN.blit(PERSON_DOWN, (position.x, position.y))
 
-    pygame.draw.rect(WIN, BLACK, START_LINE)
+    pygame.draw.rect(WIN, WHITE, START_LINE)
 
     pygame.draw.rect(WIN, BLACK, RECT_1)
     pygame.draw.rect(WIN, BLACK, RECT_2)
     pygame.draw.rect(WIN, BLACK, RECT_3)
     pygame.draw.rect(WIN, BLACK, RECT_4)
 
-    pygame.draw.rect(WIN, BLACK, END_LINE)
+    pygame.draw.rect(WIN, WHITE, END_LINE)
 
     pygame.display.update()
 
