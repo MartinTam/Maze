@@ -101,6 +101,9 @@ def draw(position, direction):
 
     pygame.draw.rect(WIN, WHITE, END_LINE)
 
+    for x in range( len(WALLS) ):
+        pygame.draw.rect(WIN, GREY, WALLS[x])
+
     pygame.display.update()
 
 def main():
