@@ -20,6 +20,13 @@ def person(direction):
     else: 
         pass
 
+def personCollide(position, rectangle):
+
+    if position.colliderect(rectangle):
+        return 1
+    else:
+        return 0
+
 def setDirection(direction_pressed, direction):
 
     if direction_pressed == 1:
@@ -38,25 +45,25 @@ def movement(key_pressed, position):
 
     if key_pressed[pygame.K_RIGHT]:
         
-        if position.x + PERSON_WIDTH <= RECT_2.x - 5:
+        if position.x + PERSON_WIDTH <= RECT_2.x:
             position.x += VEL
         return 1
     
     elif key_pressed[pygame.K_LEFT]:
         
-        if position.x >= RECT_1.x + 15:
+        if position.x >= RECT_1.x + 10:
             position.x -= VEL
         return 2
     
     elif key_pressed[pygame.K_UP]:
         
-        if position.y >= RECT_3.y + 15:
+        if position.y >= RECT_3.y + 10:
             position.y -= VEL
         return 3
 
     elif key_pressed[pygame.K_DOWN]:
         
-        if position.y + PERSON_HEIGHT <= RECT_4.y - 5:
+        if position.y + PERSON_HEIGHT <= RECT_4.y:
             position.y += VEL
         return 4
 
@@ -78,6 +85,12 @@ def draw(position, direction):
         WIN.blit(PERSON_DOWN, (position.x, position.y))
     else:
         WIN.blit(PERSON_DOWN, (position.x, position.y))
+
+    person(direction)
+
+    if personCollide(position, END_LINE):
+        position.x = PERSON_START_POSITION_X
+        position.y = PERSON_START_POSITION_Y
 
     pygame.draw.rect(WIN, WHITE, START_LINE)
 
