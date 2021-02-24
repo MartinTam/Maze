@@ -35,9 +35,19 @@ END_LINE = pygame.Rect(860, 540, 90, RECT_SIZE) # End the game
 # Walls of the maze:
 
 WALLS = [
-    pygame.Rect(60, 350, 120, RECT_SIZE),   # 1
-    pygame.Rect(400, 440, RECT_SIZE, 100),  # 2
+    pygame.Rect(60, 350, 100, RECT_SIZE),   # 1
+    pygame.Rect(410, 440, RECT_SIZE, 100),  # 2
     pygame.Rect(750, 440, 200, RECT_SIZE),  # 3
     pygame.Rect(850, 250, 100, RECT_SIZE),  # 4
-    pygame.Rect(850, 260, RECT_SIZE, 100)   # 5
+    pygame.Rect(850, 260, RECT_SIZE, 100),  # 5
+
+    pygame.Rect(310, 60, RECT_SIZE, 190),   # 6
+    pygame.Rect(150, 250, 270, RECT_SIZE),  # 7
+    pygame.Rect(410, 260, RECT_SIZE, 100),  # 8
+    pygame.Rect(230, 260, RECT_SIZE, 100),  # 9
+    pygame.Rect(150, 160, RECT_SIZE, 90),   # 10
+    pygame.Rect(150, 150, 90, RECT_SIZE),   # 11
+    pygame.Rect(310, 350, 100, RECT_SIZE),  # 12
+    pygame.Rect(310, 360, RECT_SIZE, 80),   # 13
+    pygame.Rect(150, 440, 170, RECT_SIZE)
 ]
