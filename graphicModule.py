@@ -37,9 +37,9 @@ END_LINE = pygame.Rect(860, 540, 90, RECT_SIZE) # End the game
 WALLS = [
     pygame.Rect(60, 350, 100, RECT_SIZE),   # 1
     pygame.Rect(410, 440, RECT_SIZE, 100),  # 2
-    pygame.Rect(750, 440, 200, RECT_SIZE),  # 3
-    pygame.Rect(850, 250, 100, RECT_SIZE),  # 4
-    pygame.Rect(850, 260, RECT_SIZE, 100),  # 5
+    pygame.Rect(770, 440, 180, RECT_SIZE),  # 3
+    pygame.Rect(870, 250, 80, RECT_SIZE),   # 4
+    pygame.Rect(870, 260, RECT_SIZE, 100),  # 5
 
     pygame.Rect(310, 60, RECT_SIZE, 190),   # 6
     pygame.Rect(150, 250, 270, RECT_SIZE),  # 7
@@ -49,5 +49,18 @@ WALLS = [
     pygame.Rect(150, 150, 90, RECT_SIZE),   # 11
     pygame.Rect(310, 350, 100, RECT_SIZE),  # 12
     pygame.Rect(310, 360, RECT_SIZE, 80),   # 13
-    pygame.Rect(150, 440, 170, RECT_SIZE)
+    pygame.Rect(150, 440, 170, RECT_SIZE),  # 14
+
+    pygame.Rect(600, 450, RECT_SIZE, 90),   # 15
+    pygame.Rect(520, 440, 170, RECT_SIZE),  # 16
+    pygame.Rect(520, 350, RECT_SIZE, 100),  # 17
+    pygame.Rect(680, 360, RECT_SIZE, 90),   # 18
+    pygame.Rect(600, 350, 180, RECT_SIZE),  # 19
+    pygame.Rect(770, 160, RECT_SIZE, 200),  # 20
+    pygame.Rect(680, 150, 200, RECT_SIZE),  # 21
+    pygame.Rect(680, 160, RECT_SIZE, 100),  # 22
+    pygame.Rect(600, 260, RECT_SIZE, 90),   # 23
+    pygame.Rect(520, 250, 90, RECT_SIZE),   # 24
+    pygame.Rect(520, 160, RECT_SIZE, 90),   # 25
+    pygame.Rect(410, 150, 120, RECT_SIZE)
 ]
