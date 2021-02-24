@@ -7,6 +7,25 @@ pygame.init()
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Maze')
 
+class Walls(object):
+
+    def buildWalls(self):
+
+        pygame.draw.rect(WIN, WHITE, START_LINE)
+
+        pygame.draw.rect(WIN, BLACK, RECT_1)
+        pygame.draw.rect(WIN, BLACK, RECT_2)
+        pygame.draw.rect(WIN, BLACK, RECT_3)
+        pygame.draw.rect(WIN, BLACK, RECT_4)
+
+        pygame.draw.rect(WIN, WHITE, END_LINE)
+
+        for x in range( len(WALLS) ):
+            pygame.draw.rect(WIN, GREY, WALLS[x])
+
+MAZE = Walls()
+
+
 def person(direction):
 
     if direction[0] == 1:
@@ -92,17 +111,7 @@ def draw(position, direction):
         position.x = PERSON_START_POSITION_X
         position.y = PERSON_START_POSITION_Y
 
-    pygame.draw.rect(WIN, WHITE, START_LINE)
-
-    pygame.draw.rect(WIN, BLACK, RECT_1)
-    pygame.draw.rect(WIN, BLACK, RECT_2)
-    pygame.draw.rect(WIN, BLACK, RECT_3)
-    pygame.draw.rect(WIN, BLACK, RECT_4)
-
-    pygame.draw.rect(WIN, WHITE, END_LINE)
-
-    for x in range( len(WALLS) ):
-        pygame.draw.rect(WIN, BLACK, WALLS[x])
+    MAZE.buildWalls()
 
     pygame.display.update()
 
