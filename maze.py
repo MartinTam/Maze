@@ -11,20 +11,13 @@ class Walls(object):
 
     def buildWalls(self):
 
-        pygame.draw.rect(WIN, WHITE, START_LINE)
-
-        pygame.draw.rect(WIN, BLACK, RECT_1)
-        pygame.draw.rect(WIN, BLACK, RECT_2)
-        pygame.draw.rect(WIN, BLACK, RECT_3)
-        pygame.draw.rect(WIN, BLACK, RECT_4)
-
-        pygame.draw.rect(WIN, WHITE, END_LINE)
-
         for x in range( len(WALLS) ):
-            pygame.draw.rect(WIN, BLACK, WALLS[x])
+            if x == 0 or x == 1:
+                pygame.draw.rect(WIN, WHITE, WALLS[x])    
+            else:
+                pygame.draw.rect(WIN, BLACK, WALLS[x])
 
 MAZE = Walls()
-
 
 def person(direction):
 
@@ -39,12 +32,6 @@ def person(direction):
     else: 
         pass
 
-def personCollide(position, rectangle):
-
-    if position.colliderect(rectangle):
-        return 1
-    else:
-        return 0
 
 def setDirection(direction_pressed, direction):
 
@@ -60,63 +47,61 @@ def setDirection(direction_pressed, direction):
         pass
 
 
-
 def movement(key_pressed, position):
 
     if key_pressed[pygame.K_RIGHT]:
-        
-        if position.x + PERSON_WIDTH <= RECT_2.x:
-            position.x += VEL
+                
+        position.x += VEL
 
-            for x in range(len(WALLS)):
-                if position.colliderect(WALLS[x]):
-                    position.x -= VEL
+        for x in range(len(WALLS)):
+            if position.colliderect(WALLS[x]):
+                position.x -= VEL
 
         return 1
     
     elif key_pressed[pygame.K_LEFT]:
-        
-        if position.x >= RECT_1.x + 10:
-            position.x -= VEL
+                
+        position.x -= VEL
 
-            for x in range(len(WALLS)):
-                if position.colliderect(WALLS[x]):
-                    position.x += VEL
+        for x in range(len(WALLS)):
+            if position.colliderect(WALLS[x]):
+                position.x += VEL
+        
         return 2
     
     elif key_pressed[pygame.K_UP]:
-        
-        if position.y >= RECT_3.y + 10:
-            
-            position.y -= VEL
+                            
+        position.y -= VEL
 
-            for x in range(len(WALLS)):
-                if position.colliderect(WALLS[x]):
-                    position.y += VEL
+        for x in range(len(WALLS)):
+            if position.colliderect(WALLS[x]):
+                position.y += VEL
 
         return 3
 
     elif key_pressed[pygame.K_DOWN]:
-        
-        if position.y + PERSON_HEIGHT <= RECT_4.y:
-                        
-            position.y += VEL
+                                            
+        position.y += VEL
 
-            for x in range(len(WALLS)):
+        for x in range(len(WALLS)):
 
-                if position.colliderect(WALLS[x]):
+            if position.colliderect(WALLS[x]):
+                if x == 1:
+                    pass
+                else:
                     position.y -= VEL
-                
+            
         return 4
 
     else:
         return 0
 
 
-
 def draw(position, direction):
     
     WIN.fill(WHITE)
+
+    MAZE.buildWalls()
 
     if direction[0] == 1:
         WIN.blit(PERSON_RIGHT, (position.x, position.y))
@@ -131,11 +116,9 @@ def draw(position, direction):
 
     person(direction)
 
-    if personCollide(position, END_LINE):
+    if position.colliderect(WALLS[1]):
         position.x = PERSON_START_POSITION_X
         position.y = PERSON_START_POSITION_Y
-
-    MAZE.buildWalls()
 
     pygame.display.update()
 

@@ -23,18 +23,17 @@ PERSON_UP = pygame.transform.rotate( PERSON_DOWN, 180 )
 PERSON = PERSON_DOWN
 VEL = 5
 
-START_LINE = pygame.Rect(60, 50, 90, RECT_SIZE) # Start the game
-
-RECT_1 = pygame.Rect(50, 50, RECT_SIZE, 500)    # Left vertical border
-RECT_2 = pygame.Rect(950, 50, RECT_SIZE, 500)   # Right vertical border
-RECT_3 = pygame.Rect(150, 50, 800, RECT_SIZE)   # Up vertical border
-RECT_4 = pygame.Rect(60, 540, 800, RECT_SIZE)   # Down vertical border
-
-END_LINE = pygame.Rect(860, 540, 90, RECT_SIZE) # End the game
-
-# Walls of the maze:
 
 WALLS = [
+    
+    pygame.Rect(60, 50, 90, RECT_SIZE),     # Start the game
+    pygame.Rect(860, 540, 90, RECT_SIZE),   # End the game
+
+    pygame.Rect(50, 50, RECT_SIZE, 500),    # Left vertical border
+    pygame.Rect(950, 50, RECT_SIZE, 500),   # Right vertical border
+    pygame.Rect(150, 50, 800, RECT_SIZE),   # Up vertical border
+    pygame.Rect(60, 540, 800, RECT_SIZE),   # Down vertical border
+
     pygame.Rect(60, 350, 100, RECT_SIZE),   # 1
     pygame.Rect(410, 440, RECT_SIZE, 100),  # 2
     pygame.Rect(770, 440, 180, RECT_SIZE),  # 3
