@@ -62,5 +62,5 @@ WALLS = [
     pygame.Rect(600, 260, RECT_SIZE, 90),   # 23
     pygame.Rect(520, 250, 90, RECT_SIZE),   # 24
     pygame.Rect(520, 160, RECT_SIZE, 90),   # 25
-    pygame.Rect(410, 150, 120, RECT_SIZE)
+    pygame.Rect(410, 150, 120, RECT_SIZE)   # 26
 ]

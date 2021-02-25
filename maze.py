@@ -21,7 +21,7 @@ class Walls(object):
         pygame.draw.rect(WIN, WHITE, END_LINE)
 
         for x in range( len(WALLS) ):
-            pygame.draw.rect(WIN, GREY, WALLS[x])
+            pygame.draw.rect(WIN, BLACK, WALLS[x])
 
 MAZE = Walls()
 
@@ -60,35 +60,59 @@ def setDirection(direction_pressed, direction):
         pass
 
 
+
 def movement(key_pressed, position):
 
     if key_pressed[pygame.K_RIGHT]:
         
         if position.x + PERSON_WIDTH <= RECT_2.x:
             position.x += VEL
+
+            for x in range(len(WALLS)):
+                if position.colliderect(WALLS[x]):
+                    position.x -= VEL
+
         return 1
     
     elif key_pressed[pygame.K_LEFT]:
         
         if position.x >= RECT_1.x + 10:
             position.x -= VEL
+
+            for x in range(len(WALLS)):
+                if position.colliderect(WALLS[x]):
+                    position.x += VEL
         return 2
     
     elif key_pressed[pygame.K_UP]:
         
         if position.y >= RECT_3.y + 10:
+            
             position.y -= VEL
+
+            for x in range(len(WALLS)):
+                if position.colliderect(WALLS[x]):
+                    position.y += VEL
+
         return 3
 
     elif key_pressed[pygame.K_DOWN]:
         
         if position.y + PERSON_HEIGHT <= RECT_4.y:
+                        
             position.y += VEL
+
+            for x in range(len(WALLS)):
+
+                if position.colliderect(WALLS[x]):
+                    position.y -= VEL
+                
         return 4
 
     else:
         return 0
-    
+
+
 
 def draw(position, direction):
     
